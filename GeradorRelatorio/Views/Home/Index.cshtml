@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model ParametrosRelatorioModel
+
+<h2>Gerar Relatório</h2>
+
+@using (Html.BeginForm("GerarRelatorio", "Relatorio", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(m => m.NomeRelatorio)
+        @Html.TextBoxFor(m => m.NomeRelatorio)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.NomeBancoDados)
+        @Html.TextBoxFor(m => m.NomeBancoDados)
+    </div>
+    <div>
+        <label for="formato">Formato</label>
+        <select id="formato" name="formato">
+            <option value="pdf">PDF</option>
+            <option value="csv">CSV</option>
+            <option value="xlsx">XLSX</option>
+        </select>
+    </div>
+    <button type="submit">Gerar Relatório</button>
+}
